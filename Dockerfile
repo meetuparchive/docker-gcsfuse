@@ -1,6 +1,6 @@
-FROM mup.cr/blt/build-sbt:80
+FROM meetup/sbt-builder:0.1.5
 
-ENV GCLOUD_VERSION 107.0.0
+ENV GCLOUD_VERSION 124.0.0
 ENV GCLOUD_PLATFORM linux-x86_64
 
 RUN cd /usr/local \
