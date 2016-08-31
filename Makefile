@@ -1,6 +1,6 @@
 CI_BUILD_NUMBER ?= $(USER)-snapshot
 
-PUBLISH_TAG = mup.cr/orgx/build-sbt-gcloud:$(CI_BUILD_NUMBER)
+PUBLISH_TAG = meetup/sbt-builder-gcloud:$(CI_BUILD_NUMBER)
 
 # Build the image.
 package:
