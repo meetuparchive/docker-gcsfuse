@@ -10,7 +10,7 @@ package-test:
 	@echo "No package tests yet for $(PUBLISH_TAG)"
 
 # Push the image to the docker registry/repository.
-publish:
+publish: package
 	@docker push $(PUBLISH_TAG)
 
 publish-tag:
