@@ -1,5 +1,7 @@
-# sbt-builder-gcloud [![Build Status](https://travis-ci.org/meetup/sbt-builder-gcloud.svg?branch=master)](https://travis-ci.org/meetup/sbt-builder-gcloud)
+# docker-gcsfuse
 
-A derivative of the [sbt-builder](https://github.com/meetup/sbt-builder) build
-container fitted with the [gcloud](https://cloud.google.com/sdk/gcloud/)
-toolchain and Google Datastore emulator preinstalled.
+docker image with gcsfuse installed.
+
+gcsfuse mounts a google storage bucket as a filesystem.
+
+TODO: this is still based on the build image, not the operational image
