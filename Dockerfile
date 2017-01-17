@@ -1,11 +1,9 @@
-FROM meetup/sbt-builder:0.1.5
+FROM mup.cr/orgx/build-sbt-gcloud:2
 
-ENV GCLOUD_VERSION 124.0.0
-ENV GCLOUD_PLATFORM linux-x86_64
+RUN echo "deb http://packages.cloud.google.com/apt gcsfuse-jessie main" | tee /etc/apt/sources.list.d/gcsfuse.list; \ 
+  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \ 
+  apt-get update ; apt-get install -y apt-utils kmod && apt-get install -y gcsfuse
 
-RUN cd /usr/local \
-    && curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-$GCLOUD_VERSION-$GCLOUD_PLATFORM.tar.gz \
-    && tar zxf google-cloud-sdk-$GCLOUD_VERSION-$GCLOUD_PLATFORM.tar.gz \
-    && rm google-cloud-sdk-$GCLOUD_VERSION-$GCLOUD_PLATFORM.tar.gz \
-    && ./google-cloud-sdk/install.sh --additional-components beta gcd-emulator -q \
-    && ln -s /usr/local/google-cloud-sdk/bin/gcloud /usr/bin/gcloud
+RUN mkdir -p /mnt/gcs
+
+COPY gcsfuse.sh /
